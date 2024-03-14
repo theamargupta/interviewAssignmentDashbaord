@@ -1,33 +1,8 @@
 import React from "react";
-
-const trafficSourcesData = [
-  {
-    id: 1,
-    source: "Direct",
-    visitors: 143382,
-    maxVisitors: 200000,
-  },
-  {
-    id: 2,
-    source: "Referral",
-    visitors: 87974,
-    maxVisitors: 200000,
-  },
-  {
-    id: 3,
-    source: "Social Media",
-    visitors: 45211,
-    maxVisitors: 200000,
-  },
-  {
-    id: 4,
-    source: "Twitter",
-    visitors: 21893,
-    maxVisitors: 200000,
-  },
-];
+import { fetchTrafficSourcesData } from "../../api/allApi";
 
 const TrafficSources: React.FC = () => {
+  const trafficSourcesData = fetchTrafficSourcesData();
   const calculatePercentage = (visitors: number, maxVisitors: number) => {
     return (visitors / maxVisitors) * 100;
   };

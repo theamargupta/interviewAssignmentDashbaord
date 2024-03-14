@@ -1,30 +1,7 @@
+import { fetchStatsData } from "../api/allApi";
+
 const TopStats: React.FC = () => {
-  const statsData = [
-    {
-      label: "TODAY'S SALE",
-      value: "$12,426",
-      change: "+36%",
-      changeType: "increase",
-    },
-    {
-      label: "TOTAL SALES",
-      value: "$2,38,485",
-      change: "+14%",
-      changeType: "decrease",
-    },
-    {
-      label: "TOTAL ORDERS",
-      value: "84,382",
-      change: "+36%",
-      changeType: "increase",
-    },
-    {
-      label: "TOTAL CUSTOMERS",
-      value: "33,493",
-      change: "+36%",
-      changeType: "increase",
-    },
-  ];
+  const statsData = fetchStatsData();
 
   return (
     <div className="mb-4">

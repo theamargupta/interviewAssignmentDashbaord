@@ -1,37 +1,10 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
+import { fetchSalesData } from "../../api/allApi";
 
 const SalesReport: React.FC = () => {
-  const salesData = {
-    labels: [
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-      "Jan",
-    ],
-    datasets: [
-      {
-        label: "Sales",
-        data: [
-          20000, 40000, 30000, 50000, 45000, 60000, 70000, 65000, 75000, 80000,
-          85000, 90000,
-        ],
-        fill: true,
-        backgroundColor: "rgba(117, 156, 250, 0.2)",
-        borderColor: "rgb(117, 156, 250)",
-        tension: 0.3,
-      },
-    ],
-  };
+  const salesData = fetchSalesData();
 
   const options: any = {
     responsive: true,
@@ -48,9 +21,7 @@ const SalesReport: React.FC = () => {
         },
       },
       y: {
-        grid: {
-          borderDash: [5, 5],
-        },
+        display: false,
         beginAtZero: true,
       },
     },

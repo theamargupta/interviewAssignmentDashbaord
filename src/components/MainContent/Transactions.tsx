@@ -1,29 +1,8 @@
 import React from "react";
-
-const transactionsData = [
-  {
-    id: 1,
-    type: "Completed",
-    method: "Visa card **** 4831",
-    amount: "$182.94",
-    date: "Jan 17, 2022",
-    vendor: "Amazon",
-    statusColor: "bg-green-500",
-    methodType: "Card Payment",
-  },
-  {
-    id: 2,
-    type: "Completed",
-    method: "Mastercard **** 6442",
-    amount: "$99.00",
-    date: "Jan 17, 2022",
-    vendor: "Facebook",
-    statusColor: "bg-green-500",
-    methodType: "Card Payment",
-  },
-];
+import { fetchTransactionsData } from "../../api/allApi";
 
 const Transactions: React.FC = () => {
+  const transactionsData = fetchTransactionsData();
   const statusClasses = (status: string) => {
     switch (status) {
       case "Completed":
@@ -40,7 +19,10 @@ const Transactions: React.FC = () => {
     <div className="bg-white p-6 rounded-lg shadow mb-4">
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold mb-4">Transactions</h2>
-        <div className="text-blue-600 hover:text-blue-800 text-sm font-semibold">
+        <div
+          role="button"
+          className="text-blue-600 hover:text-blue-800 text-sm font-semibold"
+        >
           See All Transactions
         </div>
       </div>
